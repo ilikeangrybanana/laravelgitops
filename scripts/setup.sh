@@ -23,9 +23,6 @@ if [ "$2" == '--migrate' ] || [ "$2" == '-m' ]
 then
 echo "migrate db"
 php artisan migrate --force
-else
-echo "Enter a valid environment"
-exit 1;
 fi
 
 echo "optimizing app"
