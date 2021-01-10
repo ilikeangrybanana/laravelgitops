@@ -19,6 +19,8 @@ composer install --no-interaction --prefer-dist --optimize-autoloader
 echo "copy .env file"
 cp .env.example .env
 
+php artisan key:generate
+
 if [ "$2" == '--migrate' ] || [ "$2" == '-m' ]
 then
 echo "migrate db"
