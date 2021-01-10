@@ -13,7 +13,7 @@ exit 1;
 fi
 
 echo "installing composer dependencies"
-composer install -no-interaction --prefer-dist --optimize-autoloader
+composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # this setp should be handled by configuration manager
 echo "copy .env file"
