@@ -2,7 +2,7 @@ name: test_push
 
 on:
   push:
-    branches: [ production ]
+    branches: [ test ]
 
 jobs:
   deploy:
