@@ -3,6 +3,7 @@ name: prod_push
 on:
   push:
     branches: [ prod ]
+  workflow_dispatch:
 
 jobs:
   deploy:
