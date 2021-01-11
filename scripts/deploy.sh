@@ -3,23 +3,19 @@ set -e
 
 echo "Deploying application ..."
 
-if [ "$1" == 'dev' ] || [ "$1" == 'test' ] || [ "$1" == 'prod' ]
-then
-echo "checkout $1 branch"
-git checkout $1
-else
-echo "Enter a valid environment"
-exit 1;
-fi
-
 # Enter maintenance mode
 (php artisan down --message 'The app is being (quickly!) updated. Please try again in a minute.') || true
-    # Update codebase
-    git fetch origin $1
-    git reset --hard origin/$1
-
     # Install dependencies based on lock file
     composer install --no-interaction --prefer-dist --optimize-autoloader
+
+    # Tnstall node dependencies
+    npm install
+
+    # Build node assets
+    npm run prod
+
+    # Update storage and bootstrap/cache permissions
+    chmod -R 777 storage bootstrap/cache
 
     # Migrate database
     php artisan migrate --force
