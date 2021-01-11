@@ -17,7 +17,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         script: |
           cd /var/www/laravel/dev
-          sudo su -
           eval `ssh-agent`
           ssh-add /var/www/el
           git checkout dev
