@@ -17,10 +17,11 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         script: |
           cd /var/www/laravel/dev
+          sudo su -
           eval `ssh-agent`
           ssh-add /var/www/el
-          sudo git checkout dev
-          sudo git fetch origin dev
-          sudo git reset --hard origin/dev
-          sudo chmod +x /var/www/laravel/dev/scripts/deploy.sh
-          sudo ./deploy.sh
+          git checkout dev
+          git fetch origin dev
+          git reset --hard origin/dev
+          chmod +x /var/www/laravel/dev/scripts/deploy.sh
+          ./scripts/deploy.sh
