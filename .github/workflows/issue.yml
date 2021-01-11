@@ -1,0 +1,13 @@
+name: issue
+
+on:
+  issues:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: echo ls
+      run: echo "Hello"
