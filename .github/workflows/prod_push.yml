@@ -23,4 +23,4 @@ jobs:
           git fetch origin prod
           git reset --hard origin/prod
           chmod +x /var/www/laravel/prod/scripts/deploy.sh
-          ./deploy.sh
+          ./scripts/deploy.sh
