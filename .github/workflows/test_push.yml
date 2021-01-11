@@ -3,6 +3,7 @@ name: test_push
 on:
   push:
     branches: [ test ]
+  workflow_dispatch:
 
 jobs:
   deploy:
