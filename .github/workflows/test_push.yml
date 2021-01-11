@@ -1,4 +1,4 @@
-name: dev_push
+name: test_push
 
 on:
   push:
@@ -16,11 +16,11 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
-          cd /var/www/laravel/dev
+          cd /var/www/laravel/test
           eval `ssh-agent`
           ssh-add /var/www/el
-          git checkout dev
-          git fetch origin dev
-          git reset --hard origin/dev
-          chmod +x /var/www/laravel/dev/scripts/deploy.sh
+          git checkout test
+          git fetch origin test
+          git reset --hard origin/test
+          chmod +x /var/www/laravel/test/scripts/deploy.sh
           ./deploy.sh
