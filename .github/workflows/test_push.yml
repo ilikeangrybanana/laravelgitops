@@ -1,0 +1,26 @@
+name: test_push
+
+on:
+  push:
+    branches: [ production ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy to production
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        script: |
+          cd /var/www/laravel/test
+          eval `ssh-agent`
+          ssh-add /var/www/el
+          git checkout test
+          git fetch origin test
+          git reset --hard origin/test
+          chmod +x /var/www/laravel/test/scripts/deploy.sh
+          ./deploy.sh
