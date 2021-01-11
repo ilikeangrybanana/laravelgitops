@@ -2,11 +2,7 @@ name: test_push
 
 on:
   push:
-<<<<<<< HEAD:.github/workflows/test_push.yml
     branches: [ test ]
-=======
-    branches: [ dev ]
->>>>>>> dev:.github/workflows/dev_push.yml
   workflow_dispatch:
 
 jobs:
@@ -24,15 +20,8 @@ jobs:
           cd /var/www/laravel/test
           eval `ssh-agent`
           ssh-add /var/www/el
-<<<<<<< HEAD:.github/workflows/test_push.yml
           git checkout test
           git fetch origin test
           git reset --hard origin/test
           chmod +x /var/www/laravel/test/scripts/deploy.sh
-=======
-          git checkout dev
-          git fetch origin dev
-          git reset --hard origin/dev
-          chmod +x /var/www/laravel/dev/scripts/deploy.sh
->>>>>>> dev:.github/workflows/dev_push.yml
           ./scripts/deploy.sh
