@@ -2,7 +2,7 @@ name: dev_push
 
 on:
   push:
-    branches: [ production ]
+    branches: [ dev ]
 
 jobs:
   deploy:
