@@ -19,8 +19,8 @@ jobs:
           cd /var/www/laravel/dev
           eval `ssh-agent`
           ssh-add /var/www/el
-          git checkout dev
-          git fetch origin dev
-          git reset --hard origin/dev
-          chmod +x /var/www/laravel/dev/scripts/deploy.sh
-          ./deploy.sh
+          sudo git checkout dev
+          sudo git fetch origin dev
+          sudo git reset --hard origin/dev
+          sudo chmod +x /var/www/laravel/dev/scripts/deploy.sh
+          sudo ./deploy.sh
