@@ -1,6 +1,6 @@
 name: testwr
 
-on: [workflow_dispatch]
+on: [issues]
 
 jobs:
   laravel-test-withdb-manual:
