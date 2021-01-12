@@ -45,8 +45,29 @@
                     </svg>
                 </div>
 
+                <div class="mt-8 p-6 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        @php
+                            $users = DB::table('users')->get()->toArray();
+                            // dd($users);
+                        @endphp
+                        @foreach ($users as $user)
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="ml-4 text-lg leading-7 font-semibold">
+                                    {{rand(0,1) < 0.5 ? '👩':'🧔'}} <a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">{{$user->name}}</a>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    {{$user->email}}
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <h1> Hello Again 3</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">
                             <div class="flex items-center">
